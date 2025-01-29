@@ -1,96 +1,196 @@
+/* Importando a Fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 /* Reset básico */
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0F0B20;
+    color: white;
     text-align: center;
 }
 
-/* Estilização do Cabeçalho */
+/* Garantindo que TODOS os textos usem Poppins */
+body, h1, h2, h3, p, a, span, button, nav ul li {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ====== HEADER ====== */
 header {
-    padding: 20px 0; /* Espaço extra para separação */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    color: #333; /* Cor escura para destaque */
+/* LOGO + TEXTO NEGRITO */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700; /* Negrito */
+    color: white;
+    text-decoration: none;
 }
 
-/* Estilização do Menu de Navegação */
+.logo img {
+    max-width: 40px;
+    margin-right: 10px;
+}
+
+/* ====== NAVEGAÇÃO (Centralizando os links "Meus Pedidos" e "Carrinho") ====== */
 nav {
-    margin-top: 10px; /* Espaço entre o header e o menu */
-    border: 2px solid #007bff; /* Borda azul para destacar */
-    border-radius: 8px; /* Bordas arredondadas */
-    display: inline-block; /* Faz com que o menu fique menor */
-    padding: 10px 20px;
-    background-color: white; /* Fundo branco para destacar */
+    flex: 1; /* Ocupa o espaço disponível */
+    display: flex;
+    justify-content: center; /* Centraliza os itens */
 }
 
 nav ul {
     list-style: none;
+    display: flex;
+    gap: 30px; /* Espaçamento entre os itens */
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
 }
 
 nav ul li {
     display: inline;
 }
 
+/* Links do menu com fonte fina */
 nav ul li a {
-    color: #007bff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; /* Deixa o texto fino */
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Hover no menu */
+nav ul li a:hover {
+    font-weight: 400; /* Fica levemente mais grosso no hover */
+    color: #A78BFA;
+}
+
+/* ====== BOTÃO SIGN UP ====== */
+.btn-signup {
+    background: white;
+    color: #0F0B20;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-    color: #0056b3;
-}
-
-/* Estilização do Conteúdo Principal */
-main {
-    margin: 50px 0;
-}
-
-main h2 {
-    font-size: 28px;
-    color: #333;
-}
-
-main p {
-    font-size: 18px;
-    color: #555;
-}
-
-/* Botão de Ação */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    font-size: 18px;
+.btn-signup:hover {
+    background: #A78BFA;
     color: white;
-    background-color: #007bff;
+}
+
+/* ====== SEÇÃO HERO (INÍCIO) ====== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 500px;
+    text-align: left;
+}
+
+/* TAG ROXA #academiajava */
+.tag {
+    display: inline-block;
+    background: #A78BFA;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+/* TÍTULOS */
+h1 {
+    font-size: 32px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #D1D5DB;
+    font-weight: 300;
+}
+
+/* ====== BOTÃO "VER PRODUTOS" ====== */
+.btn-primary {
+    display: inline-block;
+    background: white;
+    color: #0F0B20;
+    padding: 12px 20px;
+    border-radius: 25px;
     text-decoration: none;
-    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.btn-primary:hover {
+    background: #A78BFA;
+    color: white;
 }
 
-/* Rodapé */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.btn-primary span {
+    font-weight: bold;
+}
+
+/* ====== IMAGEM HERO ====== */
+.hero-image img {
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

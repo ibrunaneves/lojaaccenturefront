@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Acadêmica</title>
+    <title>Loja Accenture</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header>
-    <h1>Bem-vindo à Loja Accenture</h1>
+    <a href="index.html" class="logo">
+        loja accenture
+    </a>
+    <nav>
+        <ul>
+            <li><a href="pedidos.html">Meus Pedidos</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
+    <a href="#" class="btn-signup">Sign up →</a>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="produtos.html">Produtos</a></li>
-        <li><a href="carrinho.html">Carrinho</a></li>
-        <li><a href="pedidos.html">Meus Pedidos</a></li>
-    </ul>
-</nav>
-
-<main>
-    <h2>Seja bem-vindo!</h2>
-    <p>Escolha seus produtos e finalize seu pedido.</p>
-    <a href="produtos.html" class="btn">Ver Produtos</a>
-</main>
-
-<footer>
-    <p>&copy; 2025 Loja Acadêmica - Todos os direitos reservados.</p>
-</footer>
-
-<script src="scripts.js"></script>
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">#academiajava</span>
+        <h1>Loja Accenture - Tecnologia e Inovação</h1>
+        <p>
+            Nosso objetivo é oferecer um ambiente intuitivo, onde a tecnologia
+            Java Spring Boot e RabbitMQ garantem um fluxo eficiente de compras e entregas.
+            Com um painel de controle para rastreamento de pedidos e integração com
+            banco de dados MySQL, garantimos segurança e agilidade em todas as transações.
+        </p>
+        <a href="produtos.html" class="btn-primary">ver produtos <span>→</span></a>
+    </div>
+    <div class="hero-image">
+        <img src="imagens/laptop.png" alt="Pessoa digitando no laptop">
+    </div>
+</section>
 
 </body>
 </html>
