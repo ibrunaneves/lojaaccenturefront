@@ -1,0 +1,96 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+/* Estilização do Cabeçalho */
+header {
+    padding: 20px 0; /* Espaço extra para separação */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333; /* Cor escura para destaque */
+}
+
+/* Estilização do Menu de Navegação */
+nav {
+    margin-top: 10px; /* Espaço entre o header e o menu */
+    border: 2px solid #007bff; /* Borda azul para destacar */
+    border-radius: 8px; /* Bordas arredondadas */
+    display: inline-block; /* Faz com que o menu fique menor */
+    padding: 10px 20px;
+    background-color: white; /* Fundo branco para destacar */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Estilização do Conteúdo Principal */
+main {
+    margin: 50px 0;
+}
+
+main h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+main p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Botão de Ação */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
