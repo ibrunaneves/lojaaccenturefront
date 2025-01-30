@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Coffee at Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: purple;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: purple;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #a855f7;
+            color: white;
+            padding: 4px 5px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #9333ea;
+        }
+
+        .cadastro {
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cadastro h2 {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: #4a148c;
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-group input, .form-group select {
+            width: 200%;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            font-size: 16px;
+            transition: 0.3s;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #a855f7;
+            outline: none;
+            box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+        }
+
+        .cadastro .btn-primary {
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .cadastro {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">☕ Coffee at Home</div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="btn-primary">Início</a></li>
+            <li><a href="produtos.html" class="btn-primary">Comprar</a></li>
+            <li><a href="cadastro.html" class="btn-primary">Cadastro</a></li>
+            <li><a href="carrinho.html" class="cart-icon">🛒</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="cadastro">
+    <div class="cadastro-form">
+        <h2>Cadastro</h2>
+        <form id="form-cadastro">
+            <div class="form-group">
+                <label for="tipo">Tipo de Usuário</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="cliente">Cliente</option>
+                    <option value="vendedor">Vendedor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Ex: Bruna Neves">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="Ex: brunaneves@email.com">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="form-group" id="setor">
+                <label for="setor-input">Setor</label>
+                <input type="text" id="setor-input" name="setor" placeholder="Informe o setor">
+            </div>
+            <button type="submit" class="btn-primary">Cadastrar</button>
+            <br><br>
+            <small>Já tem uma conta? <a href="#">Faça login</a></small>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
