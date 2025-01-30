@@ -3,40 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Accenture</title>
+    <title>Loja Accenture - Café em Casa</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">
-        loja accenture
-    </a>
+    <div class="logo">☕ Coffee at Home</div>
     <nav>
         <ul>
-            <li><a href="pedidos.html">Meus Pedidos</a></li>
-            <li><a href="carrinho.html">Carrinho</a></li>
+            <li><a href="#">Entrar</a></li>
+            <li><a href="#">Cadastrar</a></li>
+            <li><a href="carrinho.html">🛒</a></li>
         </ul>
     </nav>
-    <a href="#" class="btn-signup">Sign up →</a>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <span class="tag">#academiajava</span>
-        <h1>Loja Accenture - Tecnologia e Inovação</h1>
-        <p>
-            Nosso objetivo é oferecer um ambiente intuitivo, onde a tecnologia
-            Java Spring Boot e RabbitMQ garantem um fluxo eficiente de compras e entregas.
-            Com um painel de controle para rastreamento de pedidos e integração com
-            banco de dados MySQL, garantimos segurança e agilidade em todas as transações.
-        </p>
-        <a href="produtos.html" class="btn-primary">ver produtos <span>→</span></a>
+        <h1>O melhor café para qualquer momento do seu dia</h1>
+        <p>Escolha entre café moído, cápsulas e cafeteiras e receba tudo no conforto da sua casa.</p>
+        <div class="highlights">
+            <span>🛍️ Compra fácil e segura</span>
+            <span>📦 Embalagem que mantém o sabor</span>
+            <span>🚀 Entrega rápida e rastreada</span>
+            <span>☕ Café sempre fresco</span>
+        </div>
     </div>
     <div class="hero-image">
-        <img src="imagens/laptop.png" alt="Pessoa digitando no laptop">
+        <img src="imagens/img-intro-home.png" alt="Coffee at Home">
     </div>
 </section>
+
+<section class="products">
+    <h2>Nossos Produtos</h2>
+    <div class="product-list" id="product-list">
+        <!-- Produtos serão carregados aqui via JavaScript -->
+    </div>
+</section>
+
+<script src="js/scripts.js"></script>
 
 </body>
 </html>
