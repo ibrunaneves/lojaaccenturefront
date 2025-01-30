@@ -37,7 +37,7 @@ nav ul li {
 .btn-primary {
     background-color: #a855f7;
     color: white;
-    padding: 5px 20px;
+    padding: 4px 20px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
@@ -197,18 +197,103 @@ nav ul li {
     border: 1px solid #ccc;
 }
 
-/* Botão de compra */
+/* Botão de compra apenas com borda lilás */
 .buy-button {
-    background: rgba(205, 159, 252, 0);
-    color: white;
-    padding: 10px;
+    background: transparent;
+    color: #a855f7;
+    border: 2px solid #a855f7;
+    padding: 8px;
     border-radius: 8px;
-    border: 2px solid #facc15;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .buy-button:hover {
-    background: #facc15;
+    background: #a855f7;
+    color: white;
+}
+
+/* ESTILO DO CARRINHO */
+.cart {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cart h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.cart-details {
+    flex: 1;
+}
+
+.cart-details h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.cart-details p {
+    font-size: 16px;
+    color: #666;
+}
+
+.cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-actions input {
+    width: 50px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.remove-btn {
+    background: transparent;
+    border: 2px solid red;
+    color: red;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: red;
+    color: white;
+}
+
+/* Resumo do carrinho */
+.cart-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-summary h3 {
+    font-size: 22px;
 }
