@@ -196,35 +196,29 @@ nav a {
     font-weight: bold;
 }
 
-/* Campo de quantidade dentro do produto */
-.quantity {
-    width: 50px;
-    padding: 6px;
-    text-align: center;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    margin: 0 8px;
-}
-
-/* Botão de adicionar ao carrinho menor e mais compacto */
+/* Botão de adicionar ao carrinho menor e arredondado */
 .buy-button {
     background: transparent;
     color: #a855f7;
-    border: 1px solid #a855f7;
-    padding: 2px 1px 1px 1px;  /* Reduzindo ainda mais o tamanho do botão */
-    font-size: 12px;   /* Diminuindo a fonte para um tamanho menor */
-    border-radius: 12px; /* Bordas mais arredondadas */
+    border: 2px solid #a855f7;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     transition: background 0.3s, color 0.3s;
 }
 
 .buy-button:hover {
-    background: rgba(168, 85, 247, 0.3);
+    background: #a855f7;
     color: white;
 }
 
+/* REMOVIDO QUANTIDADE E BOTÃO DE CARRINHO DA HOME */
+.home .buy-button,
+.home .quantity {
+    display: none;
+}
 
 /* CHECKOUT */
 .checkout {
@@ -361,21 +355,4 @@ nav a {
     font-size: 20px;
     margin-bottom: 10px;
     color: #333;
-}
-
-.order-summary p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-.order-items {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.order-items li {
-    font-size: 16px;
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
 }
