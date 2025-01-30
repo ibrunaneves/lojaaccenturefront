@@ -15,6 +15,7 @@
         <ul>
             <li><a href="index.html" class="btn-primary">Início</a></li>
             <li><a href="produtos.html" class="btn-primary">Comprar</a></li>
+            <li><a href="cadastro.html" class="btn-primary">Cadastro</a></li>
             <li><a href="carrinho.html" class="cart-icon">🛒</a></li>
         </ul>
     </nav>
@@ -62,6 +63,25 @@
 
 <script src="js/produtos.js"></script>
 <script src="js/carrinho.js"></script>
+<script>
+    document.getElementById("form-cadastro").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const tipo = document.getElementById("tipo").value;
+
+        alert(`Cadastro realizado com sucesso! Tipo de usuário: ${tipo}`);
+
+        document.getElementById("form-cadastro").reset();
+    });
+</script>
+
+<footer><center>
+    <p>Desenvolvido por por Bruna Neves, Natália Viana, Raiane Oliveira e Larissa Arruda. Todos os direitos reservados.</p>
+    </center>
+</footer>
 
 </body>
 </html>
