@@ -1,28 +1,49 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:8080/produtos")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro HTTP! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            let listaProdutos = document.querySelector("#lista-produtos");
-            listaProdutos.innerHTML = ""; // Limpa a lista antes de adicionar novos produtos
+const produtos = [
+    {
+        id: 1,
+        name: "Café Moído Premium",
+        description: "Café 100% arábica moído na hora.",
+        price: 29.90,
+        image: "imagens/moido.png",
+        tags: ["Tradicional"]
+    },
+    {
+        id: 2,
+        name: "Cápsulas de Café Intenso",
+        description: "Cápsulas compatíveis com máquinas Nespresso.",
+        price: 35.90,
+        image: "imagens/capsula.png",
+        tags: ["Tradicional", "Forte"]
+    },
+    {
+        id: 3,
+        name: "Cafeteira Italiana",
+        description: "Cafeteira estilo Moka para espresso encorpado.",
+        price: 99.90,
+        image: "imagens/cafeteira.png",
+        tags: ["Especial"]
+    }
+];
 
-            data.forEach(produto => {
-                let item = document.createElement("tr");
-                item.innerHTML = `
-                    <td>${produto.id}</td>
-                    <td>${produto.descricao}</td>
-                    <td>R$ ${produto.valor.toFixed(2)}</td>
-                    <td>${produto.quantidade}</td>
-                `;
-                listaProdutos.appendChild(item);
-            });
-        })
-        .catch(error => {
-            console.error("Erro ao carregar produtos:", error);
-            document.querySelector("#erro").innerText = "Falha ao carregar os produtos.";
-        });
-});
+function carregarProdutos() {
+    const listaProdutos = document.getElementById("product-list");
+
+    produtos.forEach(produto => {
+        const tagsHTML = produto.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+        listaProdutos.innerHTML += `
+            <div class="product">
+                <img src="${produto.image}" alt="${produto.name}">
+                <div class="product-tags">${tagsHTML}</div>
+                <h3>${produto.name}</h3>
+                <p>${produto.description}</p>
+                <div class="product-footer">
+                    <span class="price">R$ ${produto.price.toFixed(2)}</span>
+                    <input type="number" value="1" min="1" class="quantity">
+                    <button class="buy-button">🛒</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+window.onload = carregarProdutos;
