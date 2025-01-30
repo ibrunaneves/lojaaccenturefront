@@ -7,7 +7,6 @@ body {
     background-color: #f8f8f8;
 }
 
-/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,14 +38,14 @@ nav a {
     font-weight: bold;
 }
 
-/* BOTÕES */
 .btn-primary {
     background-color: #a855f7;
     color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
+    padding: 4px 10px;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
     transition: 0.3s;
     display: inline-block;
     border: none;
@@ -57,7 +56,6 @@ nav a {
     background-color: #9333ea;
 }
 
-/* HERO SECTION */
 .hero {
     display: flex;
     align-items: center;
@@ -95,7 +93,6 @@ nav a {
     color: #555;
 }
 
-/* IMAGEM HERO */
 .hero-image {
     flex: 1;
     display: flex;
@@ -111,7 +108,6 @@ nav a {
     object-fit: contain;
 }
 
-/* PRODUCTS SECTION */
 .products {
     padding: 40px;
 }
@@ -122,7 +118,6 @@ nav a {
     margin-bottom: 20px;
 }
 
-/* Lista de produtos */
 .product-list {
     display: flex;
     justify-content: center;
@@ -130,7 +125,6 @@ nav a {
     flex-wrap: wrap;
 }
 
-/* Estilo do card do produto */
 .product {
     background: white;
     padding: 20px;
@@ -145,7 +139,6 @@ nav a {
     transform: scale(1.05);
 }
 
-/* Imagem do produto */
 .product img {
     width: 200px;
     height: 200px;
@@ -154,7 +147,6 @@ nav a {
     margin-bottom: 10px;
 }
 
-/* Etiquetas */
 .product-tags {
     display: flex;
     justify-content: center;
@@ -171,7 +163,6 @@ nav a {
     font-weight: bold;
 }
 
-/* Nome e descrição */
 .product h3 {
     font-size: 18px;
     margin: 10px 0;
@@ -182,28 +173,37 @@ nav a {
     color: #666;
 }
 
-/* Rodapé */
 .product-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-/* Preço */
 .price {
     font-size: 16px;
     font-weight: bold;
 }
 
-/* Botão de adicionar ao carrinho menor e arredondado */
+/* Campo de quantidade mais compacto */
+.quantity {
+    width: 40px;
+    height: 28px;
+    padding: 4px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
 .buy-button {
     background: transparent;
     color: #a855f7;
     border: 2px solid #a855f7;
-    padding: 6px 10px;
+    padding: 4px 10px;
     font-size: 12px;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
     font-weight: 600;
     transition: background 0.3s, color 0.3s;
@@ -214,13 +214,11 @@ nav a {
     color: white;
 }
 
-/* REMOVIDO QUANTIDADE E BOTÃO DE CARRINHO DA HOME */
 .home .buy-button,
 .home .quantity {
     display: none;
 }
 
-/* CHECKOUT */
 .checkout {
     padding: 40px;
     display: flex;
@@ -234,7 +232,6 @@ nav a {
     width: 100%;
 }
 
-/* Formulário de entrega */
 .checkout-left {
     flex: 1;
     background: white;
@@ -245,15 +242,20 @@ nav a {
 
 .address-form input {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 6px;
     border: 1px solid #ccc;
 }
 
-.row {
+.address-form .row {
     display: flex;
     gap: 10px;
+}
+
+.address-form input[placeholder="CEP"],
+.address-form input[placeholder="Rua"] {
+    width: 65%;
 }
 
 .payment-options {
@@ -278,7 +280,6 @@ nav a {
     color: white;
 }
 
-/* Resumo do Carrinho */
 .checkout-right {
     flex: 1;
     background: white;
@@ -291,7 +292,6 @@ nav a {
     margin-bottom: 20px;
 }
 
-/* Produto no Carrinho */
 .cart-item {
     display: flex;
     align-items: center;
@@ -302,20 +302,52 @@ nav a {
 }
 
 .cart-item img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
-/* Resumo do Pedido */
+.cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-input {
+    width: 40px;
+    height: 28px;
+    padding: 4px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.remove-btn {
+    background: transparent;
+    border: 2px solid red;
+    color: red;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: red;
+    color: white;
+}
+
 .cart-summary {
     text-align: right;
 }
 
 .confirm-btn {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background: #facc15;
     border: none;
     font-weight: bold;
@@ -327,7 +359,50 @@ nav a {
     background: #e0b300;
 }
 
-/* ESTILO DA PÁGINA DE PEDIDOS */
+/* Estilos do Popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+    background: none;
+    border: none;
+}
+
+.popup .close-btn:hover {
+    color: #333;
+}
+
+.popup p {
+    font-size: 16px;
+    color: #333;
+}
+
+
 .orders {
     padding: 40px;
     max-width: 800px;
@@ -349,10 +424,4 @@ nav a {
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.order-summary h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
 }

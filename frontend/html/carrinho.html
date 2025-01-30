@@ -13,15 +13,14 @@
     <nav>
         <ul>
             <li><a href="index.html" class="btn-primary">Início</a></li>
-            <li><a href="produtos.html" class="btn-primary">Produtos</a></li>
-            <li><a href="carrinho.html" class="btn-primary">Carrinho</a></li>
+            <li><a href="produtos.html" class="btn-primary">Comprar</a></li>
+            <li><a href="pedidos.html" class="btn-primary">Meus Pedidos</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="checkout">
     <div class="checkout-container">
-        <!-- Endereço de entrega -->
         <div class="checkout-left">
             <h3>Complete seu pedido</h3>
             <div class="address-form">
@@ -40,7 +39,6 @@
                 </div>
             </div>
 
-            <!-- Métodos de pagamento -->
             <div class="payment-method">
                 <h4>💰 Pagamento</h4>
                 <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
@@ -52,12 +50,9 @@
             </div>
         </div>
 
-        <!-- Resumo do Carrinho -->
         <div class="checkout-right">
             <h3>Produtos Selecionados</h3>
-            <div id="cart-items">
-                <!-- Os produtos serão carregados dinamicamente pelo JS -->
-            </div>
+            <div id="cart-items"></div>
             <div class="cart-summary">
                 <p>Total de itens: <span id="subtotal">R$ 0,00</span></p>
                 <p>Entrega: <span id="delivery-fee">R$ 3,50</span></p>

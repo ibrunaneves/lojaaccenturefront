@@ -1,46 +1,98 @@
-// Lista de produtos disponíveis
 const produtos = [
-    { id: 1, name: "Café Moído", price: 18.00, image: "moido.png", description: "Grãos frescos e moídos na hora, para um café com sabor intenso." },
-    { id: 2, name: "Cápsulas de Café", price: 25.00, image: "capsula.png", description: "Praticidade e sabor em cada cápsula, ideal para quem ama um café rápido." },
-    { id: 3, name: "Cafeteira Elétrica", price: 150.00, image: "cafeteira.png", description: "Com design moderno, essa cafeteira vai facilitar seu dia a dia." }
+    {
+        id: 1,
+        name: "Café Moído Premium",
+        description: "Café 100% arábica moído na hora.",
+        price: 29.90,
+        image: "imagens/moido.png",
+        tags: ["Tradicional"]
+    },
+    {
+        id: 2,
+        name: "Cápsulas de Café Intenso",
+        description: "Cápsulas compatíveis com máquinas Nespresso.",
+        price: 35.90,
+        image: "imagens/capsula.png",
+        tags: ["Tradicional", "Forte"]
+    },
+    {
+        id: 3,
+        name: "Cafeteira Italiana",
+        description: "Cafeteira estilo Moka para espresso encorpado.",
+        price: 99.90,
+        image: "imagens/cafeteira.png",
+        tags: ["Especial"]
+    }
 ];
 
-// Carregar os produtos na página
 function carregarProdutos() {
-    const productList = document.getElementById("product-list");
-    productList.innerHTML = ""; // Limpa antes de carregar
+    const listaProdutos = document.getElementById("product-list");
 
     produtos.forEach(produto => {
-        const productHTML = `
+        listaProdutos.innerHTML += `
             <div class="product">
-                <img src="imagens/${produto.image}" alt="${produto.name}">
+                <img src="${produto.image}" alt="${produto.name}">
                 <h3>${produto.name}</h3>
                 <p>${produto.description}</p>
                 <div class="product-footer">
-                    <span class="price">R$ ${produto.price.toFixed(2)}</span>
-                    <button class="buy-button" onclick="adicionarAoCarrinho(${produto.id}, '${produto.name}', ${produto.price}, '${produto.image}')">Adicionar ao Carrinho</button>
+                    <span class="price">R$ ${produto.price.toFixed(2).replace(".", ",")}</span>
+                    <input type="number" id="quantidade-${produto.id}" value="1" min="1" class="quantity">
+                    <button class="buy-button" onclick="adicionarAoCarrinho(${produto.id})">🛒 Adicionar</button>
                 </div>
             </div>
         `;
-        productList.innerHTML += productHTML;
     });
 }
 
-// Adicionar um produto ao carrinho
-function adicionarAoCarrinho(id, name, price, image) {
+function adicionarAoCarrinho(id) {
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    let itemExistente = carrinho.find(item => item.id === id);
+    let produto = produtos.find(p => p.id === id);
 
-    if (itemExistente) {
-        itemExistente.quantidade += 1;
+    if (!produto) {
+        console.error("Produto não encontrado!");
+        return;
+    }
+
+    let quantidade = parseInt(document.getElementById(`quantidade-${id}`).value) || 1;
+
+    let itemNoCarrinho = carrinho.find(item => item.id === id);
+
+    if (itemNoCarrinho) {
+        itemNoCarrinho.quantidade += quantidade;
     } else {
-        carrinho.push({ id, name, price, image, quantidade: 1 });
+        carrinho.push({ id: produto.id, name: produto.name, price: produto.price, image: produto.image, quantidade });
     }
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    alert(`${name} foi adicionado ao carrinho! 🛒`);
+
+    // Exibir o popup de sucesso
+    mostrarPopup(`${quantidade}x ${produto.name} foi adicionado ao carrinho! 🛒`);
 }
 
-// Carregar os produtos ao abrir a página
+function mostrarPopup(mensagem) {
+    // Criando o popup modal
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-btn" onclick="fecharPopup()">×</span>
+            <p>${mensagem}</p>
+        </div>
+    `;
+    document.body.appendChild(popup);
+
+    // Fechar o popup após 3 segundos
+    setTimeout(() => {
+        fecharPopup();
+    }, 3000);
+}
+
+function fecharPopup() {
+    const popup = document.querySelector('.popup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", carregarProdutos);

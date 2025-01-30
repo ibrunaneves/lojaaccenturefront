@@ -4,32 +4,34 @@ function carregarCarrinho() {
     const subtotalContainer = document.getElementById("subtotal");
     const totalContainer = document.getElementById("total-price");
 
-    cartContainer.innerHTML = ""; // Limpa antes de renderizar
+    cartContainer.innerHTML = "";
 
     if (carrinho.length === 0) {
         cartContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
         subtotalContainer.textContent = "R$ 0,00";
-        totalContainer.textContent = "R$ 3,50"; // Apenas a taxa de entrega
+        totalContainer.textContent = "R$ 3,50";
         return;
     }
 
     let subtotal = 0;
 
     carrinho.forEach((produto, index) => {
+        produto.price = parseFloat(produto.price);
         subtotal += produto.price * produto.quantidade;
 
-        // Criando o elemento do item no carrinho
         const cartItem = document.createElement("div");
         cartItem.classList.add("cart-item");
 
         cartItem.innerHTML = `
-            <img src="${produto.image}" alt="${produto.name}">
+            <img src="${produto.image}" alt="${produto.name}" onerror="this.src='imagens/default.png'">
             <div class="cart-details">
                 <h3>${produto.name}</h3>
-                <p>${produto.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                <p>R$ ${produto.price.toFixed(2).replace(".", ",")}</p>
                 <div class="cart-actions">
-                    <input type="number" min="1" value="${produto.quantidade}" onchange="atualizarQuantidade(${index}, this.value)">
-                    <button class="remove-btn" onclick="removerDoCarrinho(${index})">🗑️ REMOVER</button>
+                    <button class="quantity-btn" onclick="alterarQuantidade(${index}, -1)">➖</button>
+                    <input type="number" class="quantity-input" min="1" value="${produto.quantidade}" onchange="atualizarQuantidade(${index}, this.value)">
+                    <button class="quantity-btn" onclick="alterarQuantidade(${index}, 1)">➕</button>
+                    <button class="remove-btn" onclick="removerDoCarrinho(${index})">🗑️</button>
                 </div>
             </div>
         `;
@@ -37,26 +39,39 @@ function carregarCarrinho() {
         cartContainer.appendChild(cartItem);
     });
 
-    // Atualiza os valores totais
-    subtotalContainer.textContent = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    totalContainer.textContent = (subtotal + 3.50).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    subtotalContainer.textContent = `R$ ${subtotal.toFixed(2).replace(".", ",")}`;
+    totalContainer.textContent = `R$ ${(subtotal + 3.50).toFixed(2).replace(".", ",")}`;
 }
 
-// Atualizar quantidade de um produto no carrinho
-function atualizarQuantidade(index, quantidade) {
+function alterarQuantidade(index, delta) {
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    if (quantidade <= 0) {
-        removerDoCarrinho(index);
+    if (carrinho[index]) {
+        carrinho[index].quantidade += delta;
+
+        // Impede que a quantidade seja menor que 1
+        if (carrinho[index].quantidade < 1) {
+            carrinho[index].quantidade = 1;
+        }
+
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        carregarCarrinho();
+    }
+}
+
+function atualizarQuantidade(index, quantidade) {
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    quantidade = parseInt(quantidade);
+
+    if (quantidade < 1) {
         return;
     }
 
-    carrinho[index].quantidade = parseInt(quantidade);
+    carrinho[index].quantidade = quantidade;
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
     carregarCarrinho();
 }
 
-// Remover um item do carrinho
 function removerDoCarrinho(index) {
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -67,5 +82,4 @@ function removerDoCarrinho(index) {
     }
 }
 
-// Carregar os produtos ao abrir a página
 window.onload = carregarCarrinho;
